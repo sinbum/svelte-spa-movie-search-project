@@ -12,4 +12,9 @@ $color--white-5: rgba($color--white,.05);
 $color--primary: #FDC000;
 $color--area: #1C212E;
 
-
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 0 0;
+  position: relative;
+}
