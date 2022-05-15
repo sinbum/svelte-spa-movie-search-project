@@ -61,7 +61,7 @@
         li{
           margin-left: 10px;
           &:first-child {
-            margin-left: 0px;
+            margin-left: 0;
           }
           a{
             font-size: 14px;
