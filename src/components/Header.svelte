@@ -39,18 +39,68 @@
         </ul>
     </nav>
 
+    <div class="user">
+        <img src="/assets/svelte.png" alt="User" />
+    </div>
+
 </header>
 
 <style lang="scss">
   header {
-    a {
-      &.active {
-        color: red;
+    padding: 20px 40px;
+    background-color:  $color--black-90;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    display: flex;
+    align-items: flex-end;
+    nav {
+      margin-left: 40px;
+      ul{
+        display: flex;
+        li{
+          margin-left: 10px;
+          &:first-child {
+            margin-left: 0px;
+          }
+          a{
+            font-size: 14px;
+            font-weight: 700;
+            color: $color--white-50;
+            text-decoration: none;
+          }
+        }
       }
+
     }
+
+  }
+  .user{
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background-color: $color--area;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 40px;
+    &:hover{
+      background-color: lighten($color--area,20%);
+    }
+    img{
+      width: 100%;
+    }
+
   }
 
   header :global(a.active) {
-    color: red;
+    color: $color--primary !important;
   }
+  //:global(body){
+  //  height: 3000px;
+  //}
 </style>
