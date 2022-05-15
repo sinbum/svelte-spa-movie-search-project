@@ -3,27 +3,40 @@
     import active from 'svelte-spa-router/active'
     import Logo from "~/components/Logo.svelte";
 
-
+    const menus = [
+        {
+            href: '/',
+            name: 'Search'
+        },
+        {
+            href: '/movie/tt4520988',
+            name: 'Movie'
+        },
+        {
+            href: '/about',
+            name: 'About'
+        }
+    ]
 
 </script>
 
 <header>
     <Logo/>
-    Header!
-    <!--  루트경로는 {'/'} 가 필요없음. active시에.  -->
-    <a
-            use:link
-            use:active
-            href="/">
-        Home
-    </a>
+    <nav>
+        <ul>
+            {#each menus as {href, name}(name)}
+                <li>
+                    <a
+                            use:link
+                            use:active={href}
+                            {href}>
+                        {name}
+                    </a>
+                </li>
+            {/each}
+        </ul>
+    </nav>
 
-    <a
-            use:link
-            use:active={'/about'}
-            href="/about">
-        about
-    </a>
 </header>
 
 <style lang="scss">
