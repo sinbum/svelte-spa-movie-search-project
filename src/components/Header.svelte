@@ -10,11 +10,13 @@
         },
         {
             href: '/movie/tt4520988',
-            name: 'Movie'
+            name: 'Movie',
+            path: '/movie/*'
         },
         {
             href: '/about',
-            name: 'About'
+            name: 'About',
+            path: '/about'
         }
     ]
 
@@ -24,11 +26,11 @@
     <Logo/>
     <nav>
         <ul>
-            {#each menus as {href, name}(name)}
+            {#each menus as {href, name, path}(name)}
                 <li>
                     <a
                             use:link
-                            use:active={href}
+                            use:active={path}
                             {href}>
                         {name}
                     </a>
