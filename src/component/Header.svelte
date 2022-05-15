@@ -1,6 +1,8 @@
 <script>
     import {link} from 'svelte-spa-router'
     import active from 'svelte-spa-router/active'
+    import Logo from '~/componenets/Logo.svelte'
+
 
 </script>
 
