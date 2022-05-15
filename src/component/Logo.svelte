@@ -5,7 +5,7 @@
 
 <a
         use:link
-        href="/">
+        href="/public">
     <span>OMDBAPI</span>.COM
 </a>
 
