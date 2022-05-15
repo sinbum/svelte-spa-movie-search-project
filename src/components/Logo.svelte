@@ -5,7 +5,7 @@
 
 <a
         use:link
-        href="/public">
+        href="/">
     <span>OMDBAPI</span>.COM
 </a>
 
@@ -14,7 +14,7 @@
     a{
       display: block;
       font-family: 'Oswald',sans-serif;
-      font-size: 30px;
+      font-size: 20px;
       color: rgba(#fff,.5);
       text-decoration: none; //글씨 밑줄 사용X
       span {

@@ -1,14 +1,14 @@
 <script>
     import {link} from 'svelte-spa-router'
     import active from 'svelte-spa-router/active'
-    import Logo from "~/componenets/Logo.svelte";
+    import Logo from "~/components/Logo.svelte";
 
 
 
 </script>
 
 <header>
-    <Logo></Logo>
+    <Logo/>
     Header!
     <!--  루트경로는 {'/'} 가 필요없음. active시에.  -->
     <a
