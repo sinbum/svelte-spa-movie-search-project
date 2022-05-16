@@ -70,7 +70,7 @@
 
     <button
             class="btn"
-            on:click={apply()}>
+            on:click={apply}>
         Apply
     </button>
 
