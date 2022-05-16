@@ -1,7 +1,9 @@
 import axios from 'axios';
+import _unionBy from 'lodash/unionBy'
 import {writable, get} from "svelte/store";
 
 export const movies =writable([])
+
 
 export async function searchMovies(payload){
     const {title, type, year, number} = payload;
@@ -25,10 +27,7 @@ export async function searchMovies(payload){
             if (page > (number / 10)) break
             const res =  await axios.get(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`)
             const { Search } = res.data
-            movies.update($movies =>{
-                $movies.push( ...Search )
-                return $movies
-            })
+            movies.update($movies => _unionBy($movies, Search, 'imdbID'))
         }
     }
 
