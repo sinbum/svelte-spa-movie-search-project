@@ -2,6 +2,10 @@
     import Headline from "~/components/Headline.svelte";
     import Search from '~/components/Search.svelte';
     import MovieList from "~/components/MovieList.svelte";
+    import {initMovies} from "~/store/movie";
+
+    //페이지 로드시 초기화함수 실행.
+    initMovies()
 </script>
 
 <div class="container">
