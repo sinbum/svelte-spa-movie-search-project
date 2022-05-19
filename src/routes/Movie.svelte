@@ -3,9 +3,22 @@
     import Loader from "~/components/Loader.svelte";
     import {searchMovieWithId, theMovie, loading} from '~/store/movie'
 
+    let imageLoading = true;
+
     export let params = {}
 
     searchMovieWithId(params.id)
+
+    function requestDifferentSizeImage(url, size = 700) {
+        const src = url.replace('SX300', `SX${size}`)
+        const img = document.createElement('img');
+        img.src = src
+        img.addEventListener('load', () => {
+            imageLoading = false;
+        })
+
+        return src
+    }
 </script>
 
 <div class="container">
@@ -25,8 +38,14 @@
     {:else}
         <div class="movie-details">
             <div
-                    style="background-image: url({$theMovie.Poster})"
+                    style="background-image: url({requestDifferentSizeImage($theMovie.Poster)})"
                     class="poster">
+
+                {#if imageLoading}
+                    <Loader
+                            scale=".7"/>
+                {/if}
+
 
             </div>
 
@@ -145,6 +164,7 @@
     background-size: cover;
     position: relative;
     background-color: $color--area;
+    position: relative;
   }
 
   .specs {
@@ -169,18 +189,20 @@
     }
 
     .ratings {
-        .rating-wrap{
+      .rating-wrap {
+        display: flex;
+
+        .rating {
           display: flex;
-          .rating{
-            display: flex;
-            align-items: center;
-            margin-right: 32px;
-            img{
-                flex-shrink: 0;
-                margin-right: 6px;
-            }
+          align-items: center;
+          margin-right: 32px;
+
+          img {
+            flex-shrink: 0;
+            margin-right: 6px;
           }
         }
+      }
     }
 
     h3 {
