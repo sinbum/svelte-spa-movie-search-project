@@ -1,6 +1,6 @@
 <script>
     import _upperFirst from "lodash/upperFirst";
-    import {searchMovies} from '~/store/movies'
+    import {searchMovies} from '~/store/movie'
 
 
     const types = [

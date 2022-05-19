@@ -1,10 +1,10 @@
 <script>
 
     import Loader from "~/components/Loader.svelte";
-    import {get} from "svelte/store";
-
-
+    import { searchMovieWithId } from '~/store/movie'
     export let params = {}
+
+    searchMovieWithId(params.id)
 </script>
 
 <div class="container">

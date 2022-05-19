@@ -19,7 +19,7 @@
 
 <a
         use:link
-        href={'/movie/${movie.imdbID}'}
+        href={`/movie/${movie.imdbID}`}
         class="movie">
     {#if imageLoading}
         <Loader

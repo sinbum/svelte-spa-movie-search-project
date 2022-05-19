@@ -1,5 +1,5 @@
 <script>
-    import { movies, loading } from '~/store/movies'
+    import { movie, loading } from '~/store/movie'
     import MovieCard from "~/components/MovieCard.svelte";
     import Loader from "~/components/Loader.svelte";
 
@@ -10,7 +10,7 @@
         <Loader/>
     {/if}
     <div class="movies">
-        {#each $movies as movie (movie.imdbID)}
+        {#each $movie as movie (movie.imdbID)}
             <MovieCard {movie}/>
 <!--            {movie.Title}-->
         {/each}
