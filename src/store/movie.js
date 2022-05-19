@@ -51,7 +51,6 @@ export async function searchMovieWithId(id) {
 
     theMovie.set(res.data);
 
-
     loading.set(false);
 
 }
