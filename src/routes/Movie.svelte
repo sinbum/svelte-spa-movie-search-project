@@ -111,6 +111,10 @@
   .skeleton-loader {
     display: flex;
 
+    .poster {
+      display: none;
+    }
+
     .skeletons {
       flex: 1;
 
@@ -150,6 +154,9 @@
   .movie-details {
     color: $color--white-50;
     display: flex;
+    @media #{$mobile} {
+      display: block;
+    }
 
   }
 
@@ -165,6 +172,15 @@
     position: relative;
     background-color: $color--area;
     position: relative;
+    @media #{$mobile} {
+      width: 300px;
+      height: 300px * 3/2;
+      margin-right: 30px;
+    }
+    @media #{$tablet}{
+      margin-right: 0;
+      margin-bottom: 50px;
+    }
   }
 
   .specs {
@@ -174,6 +190,9 @@
       color: $color--white;
       line-height: 1;
       margin-bottom: 30px;
+      @media #{$mobile} {
+        font-size: 50px;
+      }
     }
 
     .lables {
@@ -196,7 +215,11 @@
           display: flex;
           align-items: center;
           margin-right: 32px;
-
+          @media #{$tablet} {
+            transform: scale(.85);
+            transform-origin: left;
+            margin-right: 0;
+          }
           img {
             flex-shrink: 0;
             margin-right: 6px;
