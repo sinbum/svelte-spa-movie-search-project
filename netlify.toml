@@ -4,11 +4,12 @@
     functions = "functions" # 넷플리파이 서버리스 함수가 작성된 디렉토리를 지정.
     publish = "build" # 프로젝트 빌드 결과의 디렉토리를 지정.
 
+#개발 모드
 [dev]
     framework = "#custom" # 감지할 프로젝트 유형 지정. 앱 서버 및 타겟포트 옵션을 실행하는 명령 옵션은 커스텀.
-    command = "npm run dev"
-    targetPort = 8080
-    port = 8888
+    command = "npm run dev:snowpack"
+    targetPort = 8079 #연결할 플젝 개발 서버포트지정.
+    port = 8080 #Netflify 서버 포트
     publish = "public"
     jwtRolePath = "app_metadata.authorization.roles" #JWT 기반 리다이렉션에 대한 역할 값을 찾아야하는 객체 경로를 지정.
     autoLaunch = true
