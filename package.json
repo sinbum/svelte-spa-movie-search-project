@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "snowpack dev",
+    "dev:netlify" : "netlify dev",
     "build": "snowpack build"
   },
   "keywords": [],
@@ -24,6 +25,7 @@
     "axios": "^0.27.2",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "lodash": "^4.17.21",
+    "netlify-cli": "^10.3.1",
     "postcss": "^8.4.13",
     "qs": "^6.10.3",
     "snowpack": "^3.8.8",
