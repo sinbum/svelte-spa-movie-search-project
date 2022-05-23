@@ -23,9 +23,13 @@ export async function searchMovies(payload) {
     let total = 0;
 
     try {
-        const res = await _fetchMovie(
-            {...payload, page: 1}
-        )
+        // const res = await _fetchMovie(
+        //     {...payload, page: 1}
+        // )
+       const res = await axios.post('/.netlify/functions/movie',{
+            ...payload,
+            page:1
+        })
 
         const {Search, totalResults} = res.data
         movies.set(Search)
@@ -51,8 +55,12 @@ export async function searchMovies(payload) {
     if (pageLength > 1) {
         for (let page = 2; page <= pageLength; page++) {
             if (page > (payload.number / 10)) break
-            const res = await _fetchMovie({
-                ...payload,
+            // const res = await _fetchMovie({
+            //     ...payload,
+            //     page
+            // })
+            const res = await axios.post('/.netlify/functions/movie',{
+               ...payload,
                 page
             })
             const {Search} = res.data
@@ -68,8 +76,11 @@ export async function searchMovieWithId(id) {
     if (get(loading)) return
     loading.set(true);
 
-    const res = await _fetchMovie({
-        id
+    // const res = await _fetchMovie({
+    //     id
+    // })
+    const res = await axios.post('/.netlify/functions/movie',{
+      id
     })
 
     console.log(res);
@@ -77,35 +88,6 @@ export async function searchMovieWithId(id) {
     theMovie.set(res.data);
 
     loading.set(false);
-
-}
-
-function _fetchMovie(payload){
-    const { title, type, year, page, id} = payload
-    const OMDB_API_KEY = '60f532c2'
-
-    console.log('id',id)
-    
-    const url = id 
-        ? `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}&plot=full` //단일 상세정보
-        : `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}` // 영화 list정보
-
-    return new Promise(async (resolve, reject) => {
-
-        try {
-            const res = await axios.get(url);
-            console.log(res.data)
-
-            if(res.data.Error){
-                reject(res.data.Error);
-            }
-            resolve(res);
-
-        }catch (e) {
-            console.log(e.response.status);
-            reject(e.message)
-        }
-    })
 
 }
 
