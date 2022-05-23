@@ -1,10 +1,10 @@
 const axios = require("axios");
+const { OMDB_API_KEY } = process.env
 
 exports.handler = async function (event, context) {
     const params = JSON.parse(event.body)
 
     const {title, type, year, page, id} = params
-    const OMDB_API_KEY = '60f532c2'
 
     console.log('id', id)
 
